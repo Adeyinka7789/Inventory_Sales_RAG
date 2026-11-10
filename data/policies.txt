@@ -1,0 +1,37 @@
+ACME INVENTORY & SALES CO. — COMPANY POLICIES
+
+RETURN POLICY
+Customers may return unopened products within 14 days of purchase for a full refund.
+Opened electronics may be returned within 7 days only if defective, subject to inspection.
+Bulk orders (100+ units) are non-returnable unless the entire shipment is defective.
+All returns require the original sales receipt or order number.
+
+BULK DISCOUNT POLICY
+Orders of 100-499 units receive a 5% discount off the listed unit price.
+Orders of 500 units or more receive a 15% discount off the listed unit price.
+Discounts apply to unit price only and do not stack with promotional pricing.
+Bulk discount requests must be approved by a sales supervisor before invoicing.
+
+SUPPLIER PAYMENT TERMS
+Standard supplier payment terms are Net 30 from the invoice date.
+Suppliers with a 12+ month relationship qualify for Net 45 terms upon request.
+Late supplier payments beyond 60 days incur a 2% monthly penalty.
+All supplier invoices must reference a valid purchase order number.
+
+STOCK REORDER POLICY
+Products falling below their reorder level trigger an automatic restock alert.
+Standard restock lead time is 5-7 business days from approved suppliers.
+Fast-moving categories (footwear, safety gear) maintain a 20% safety stock buffer.
+Reorder quantities are calculated as: (average weekly sales x 4) minus current stock.
+
+CUSTOMER COMPLAINT ESCALATION
+Complaints about product quality are logged and routed to the Quality team within 24 hours.
+Complaints involving a refund dispute over ₦50,000 require manager approval.
+Repeated complaints (3+) from the same customer trigger an account review.
+The assistant must never promise a refund directly — always route to a human for approval.
+
+SHIPPING & DELIVERY POLICY
+Standard delivery within Lagos takes 1-2 business days.
+Delivery outside Lagos state takes 3-5 business days depending on courier partner.
+Orders above ₦200,000 qualify for free delivery; otherwise a flat ₦2,500 fee applies.
+Delayed deliveries beyond the quoted window are eligible for a delivery fee refund only, not the order value.

@@ -1,0 +1,24 @@
+# Tooling config only — dependencies live in requirements.txt.
+# Keeping this file means `ruff check .` and `pytest` work with no arguments.
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+exclude = [".venv", "venv", "__pycache__"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+# RUF001-003 flag typographic characters (en dashes, thin spaces) that are
+# intentional in the prompt text and the policy corpus.
+ignore = ["RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.per-file-ignores]
+# Streamlit requires st.set_page_config() before the imports that use st.
+"streamlit_app.py" = ["E402"]
+# The package __init__ sets warning filters before importing submodules.
+"core/__init__.py" = ["E402"]
+"tests/*" = ["E402"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

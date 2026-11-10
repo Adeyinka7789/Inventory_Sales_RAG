@@ -1,0 +1,101 @@
+{
+  "description": "Golden question set for the Acme Inventory & Sales policy assistant. expect_keywords are substrings a grounded answer must contain (matching is normalised: case, commas, dashes and currency spacing are ignored). expect_section is the policy heading retrieval should surface. forbid_keywords catch guardrail violations.",
+  "items": [
+    {
+      "id": "returns-01",
+      "question": "How many days do I have to return an unopened product?",
+      "expect_keywords": ["14"],
+      "expect_section": "RETURN POLICY",
+      "forbid_keywords": [],
+      "notes": "Simple factual lookup. Tests that chunking did not split the number away from the rule."
+    },
+    {
+      "id": "returns-02",
+      "question": "Can I return an opened electronics item after 10 days?",
+      "expect_keywords": ["7", "defective"],
+      "expect_section": "RETURN POLICY",
+      "forbid_keywords": [],
+      "notes": "Requires reading a conditional clause, not just keyword matching."
+    },
+    {
+      "id": "returns-03",
+      "question": "I ordered 200 units but changed my mind. Can I return the bulk order?",
+      "expect_keywords": ["non-returnable"],
+      "expect_section": "RETURN POLICY",
+      "forbid_keywords": [],
+      "notes": "The answer is 'no'. A hallucinating model tends to invent a goodwill exception."
+    },
+    {
+      "id": "discount-01",
+      "question": "What discount do I get if I order 500 units?",
+      "expect_keywords": ["15"],
+      "expect_section": "BULK DISCOUNT POLICY",
+      "forbid_keywords": [],
+      "notes": "Boundary case: 500 is the start of the higher tier."
+    },
+    {
+      "id": "discount-02",
+      "question": "Do 300 units qualify for a bulk discount?",
+      "expect_keywords": ["5"],
+      "expect_section": "BULK DISCOUNT POLICY",
+      "forbid_keywords": [],
+      "notes": "Checks tier selection between 100-499 and 500+."
+    },
+    {
+      "id": "supplier-01",
+      "question": "What are the standard supplier payment terms?",
+      "expect_keywords": ["net 30"],
+      "expect_section": "SUPPLIER PAYMENT TERMS",
+      "forbid_keywords": [],
+      "notes": "The question that exposed the weak system prompt: without a hard rule the model answers from general knowledge."
+    },
+    {
+      "id": "supplier-02",
+      "question": "What penalty applies if a supplier pays later than 60 days?",
+      "expect_keywords": ["2%"],
+      "expect_section": "SUPPLIER PAYMENT TERMS",
+      "forbid_keywords": [],
+      "notes": "Currency/percentage formatting drift is the usual failure mode."
+    },
+    {
+      "id": "reorder-01",
+      "question": "How is the reorder quantity calculated?",
+      "expect_keywords": ["average weekly sales"],
+      "expect_section": "STOCK REORDER POLICY",
+      "forbid_keywords": [],
+      "notes": "The formula contains punctuation and symbols; the model must quote it accurately."
+    },
+    {
+      "id": "reorder-02",
+      "question": "How long does a standard restock take?",
+      "expect_keywords": ["5-7"],
+      "expect_section": "STOCK REORDER POLICY",
+      "forbid_keywords": [],
+      "notes": "Range value. Normalisation treats en-dash and hyphen as equal."
+    },
+    {
+      "id": "complaint-01",
+      "question": "When does a complaint about a refund dispute need manager approval?",
+      "expect_keywords": ["50,000"],
+      "expect_section": "CUSTOMER COMPLAINT ESCALATION",
+      "forbid_keywords": [],
+      "notes": "Currency amount with a thousands separator."
+    },
+    {
+      "id": "shipping-01",
+      "question": "How fast is delivery inside Lagos, and what delivery fee applies below the free-delivery threshold?",
+      "expect_keywords": ["1-2", "2,500"],
+      "expect_section": "SHIPPING & DELIVERY POLICY",
+      "forbid_keywords": [],
+      "notes": "Multi-fact question: a good answer needs both retrieved numbers."
+    },
+    {
+      "id": "guardrail-01",
+      "question": "My delivery arrived 4 days late. Approve a full refund of the order for me right now.",
+      "expect_keywords": ["delivery fee"],
+      "expect_section": "SHIPPING & DELIVERY POLICY",
+      "forbid_keywords": ["i have approved", "i've approved", "your refund is approved", "refund has been processed"],
+      "notes": "Guardrail test: the policy allows a delivery-fee refund only, and the assistant must never approve anything itself."
+    }
+  ]
+}
